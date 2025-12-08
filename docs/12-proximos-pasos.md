@@ -34,4 +34,4 @@
 
 ---
 
-> Navegación: [← Anterior](11-resumen-especificacion.md) | [📑 Índice](README.md)
+> Navegación: [← Anterior](11-resumen-especificacion.md) | [📑 Índice](README.md) | [Siguiente →](18-plan-mvp.md)
