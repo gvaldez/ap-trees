@@ -23,6 +23,7 @@ Proporcionar una plataforma digital que permita el monitoreo, gestión y anális
 - ✅ Gestionar mano de obra y actividades de campo
 - ✅ Generar reportes de trazabilidad para certificaciones
 - ✅ Predecir rendimientos mediante análisis de datos históricos
+- ✅ **Visualizar el estado de la finca en formato de cuadrícula (filas x columnas)**
 
 ---
 
@@ -60,7 +61,217 @@ Proporcionar una plataforma digital que permita el monitoreo, gestión y anális
 
 ---
 
-### 3.2 🌱 Módulo de Salud y Fenología
+### 3.2 🔲 Módulo de Vista de Cuadrícula (CORE)
+
+> **💡 Funcionalidad inspirada en el método tradicional de hoja cuadriculada**, digitalizada para visualización rápida del estado de toda la finca.
+
+Este módulo es el **corazón visual del sistema**, permitiendo ver el estado de cada árbol en una cuadrícula interactiva de filas y columnas, tal como se hace tradicionalmente en papel pero con capacidades digitales avanzadas.
+
+#### Características Principales
+
+| Funcionalidad | Descripción |
+|---------------|-------------|
+| **Cuadrícula Interactiva** | Visualización de árboles en formato fila × columna por lote |
+| **Código de Colores** | Estado visual inmediato de cada árbol |
+| **Filtros Temporales** | Ver estado actual o histórico (semana, mes, año) |
+| **Zoom y Navegación** | Desde vista general hasta árbol individual |
+| **Actualización en Campo** | Modificar estado directamente desde app móvil |
+| **Mapas de Calor** | Identificar zonas problemáticas rápidamente |
+| **Comparación Temporal** | Antes/después para análisis de propagación |
+
+#### Código de Colores por Estado
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  LEYENDA DE ESTADOS                                         │
+├─────────────────────────────────────────────────────────────┤
+│  🟢 Verde      │ Saludable - Sin problemas                  │
+│  🟡 Amarillo   │ Atención - Requiere monitoreo              │
+│  🟠 Naranja    │ Advertencia - Intervención próxima         │
+│  🔴 Rojo       │ Crítico - Intervención inmediata           │
+│  ⚫ Negro      │ Muerto/Removido                            │
+│  🔵 Azul       │ En tratamiento activo                      │
+│  🟣 Morado     │ Recién plantado/En desarrollo              │
+│  ⬜ Blanco     │ Sin inspeccionar                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### Ejemplo de Vista de Cuadrícula - Lote A
+
+```
+                    LOTE A - Sector Norte
+                    Fecha: 2025-12-08
+    
+        Col→  1    2    3    4    5    6    7    8    9   10
+      ┌─────────────────────────────────────────────────────────┐
+Fila 1│  🟢   🟢   🟢   🟢   🟡   🟡   🔴   🔴   🟢   🟢  │
+Fila 2│  🟢   🟢   🟢   🟡   🟡   🔴   🔴   🟠   🟢   🟢  │
+Fila 3│  🟢   🟢   🟡   🟡   🔴   🔴   🟠   🟠   🟢   🟢  │
+Fila 4│  🟢   🟢   🟢   🟡   🟠   🟠   🟢   🟢   🟢   🟢  │
+Fila 5│  🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢  │
+Fila 6│  🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢   🟢  │
+Fila 7│  🟢   🟢   🔵   🔵   🟢   🟢   🟢   🟢   🟣   🟣  │
+Fila 8│  🟢   🟢   🔵   🔵   🟢   🟢   🟢   🟢   🟣   🟣  │
+      └─────────────────────────────────────────────────────────┘
+      
+      📊 Resumen: 80 árboles | 🟢 58 | 🟡 6 | 🟠 5 | 🔴 5 | 🔵 4 | 🟣 4
+      ⚠️ ALERTA: Posible foco de plaga detectado en zona [F1-3, C5-8]
+```
+
+#### Análisis de Propagación de Plagas
+
+La cuadrícula permite identificar patrones de propagación:
+
+```
+HISTÓRICO DE PROPAGACIÓN - Phytophthora (Últimas 4 semanas)
+
+Semana 1          Semana 2          Semana 3          Semana 4
+┌──────────┐      ┌──────────┐      ┌──────────┐      ┌──────────┐
+│🟢🟢🟢🟢🟢│      │🟢🟢🟢🟢🟢│      │🟢🟢🟢🟡🟡│      │🟢🟢🟡🟡🔴│
+│🟢🟢🟢🟢🟢│      │🟢🟢🟢🟡🟢│      │🟢🟢🟡🔴🟡│      │🟢🟡🟡🔴🔴│
+│🟢🟢🟢🟢🟢│      │🟢🟢🟡🟢🟢│      │🟢🟡🔴🟡🟢│      │🟡🟡🔴🟠🟢│
+│🟢🟢🟢🟢🟢│      │🟢🟢🟢🟢🟢│      │🟢🟢🟡🟢🟢│      │🟢🟢🟡🟢🟢│
+│🟢🟢🟢🟢🟢│      │🟢🟢🟢🟢🟢│      │🟢🟢🟢🟢🟢│      │🟢🟢🟢🟢🟢│
+└──────────┘      └──────────┘      └──────────┘      └──────────┘
+Foco inicial:     Expansión:        Propagación:      Estado actual:
+F3,C3             4 árboles         9 árboles         15 árboles
+                  
+📈 Velocidad de propagación: ~4 árboles/semana
+🧭 Dirección: Noreste → Suroeste
+💡 Recomendación: Aplicar fungicida en perímetro + 2 filas buffer
+```
+
+#### Capas de Visualización
+
+| Capa | Descripción | Uso Principal |
+|------|-------------|---------------|
+| **Estado Fitosanitario** | Salud general del árbol | Inspección diaria |
+| **Fenología** | Etapa de desarrollo | Planificación de cosecha |
+| **Producción** | kg por árbol (gradiente) | Análisis de rendimiento |
+| **Riego** | Estado de humedad | Gestión hídrica |
+| **Última Inspección** | Días desde última visita | Planificación de rondas |
+| **Edad** | Años desde siembra | Gestión de renovación |
+| **Tratamientos** | Aplicaciones activas | Control fitosanitario |
+
+#### Interacciones en la Cuadrícula
+
+**Click/Tap en un árbol:**
+```
+┌─────────────────────────────────────────┐
+│  🌳 Árbol AGC-001-A-0315                │
+├─────────────────────────────────────────┤
+│  📍 Fila: 3  |  Columna: 15             │
+│  🏷️ Variedad: Hass                      │
+│  📅 Edad: 6 años                        │
+│  🌡️ Estado: 🟠 Advertencia              │
+│  🐛 Problema: Trips (leve)              │
+│  📆 Última inspección: Hace 2 días      │
+│  💊 Tratamiento: Spinosad (en curso)    │
+├─────────────────────────────────────────┤
+│  [📝 Actualizar] [📷 Ver fotos]         │
+│  [📊 Historial] [🗺️ Ver en mapa]        │
+└─────────────────────────────────────────┘
+```
+
+**Selección múltiple (arrastrar):**
+- Seleccionar zona para aplicación masiva
+- Marcar área afectada por plaga
+- Asignar tarea a trabajador
+- Generar reporte de zona
+
+#### Filtros y Búsqueda
+
+```yaml
+filtros_disponibles:
+  estado:
+    - Todos
+    - Solo críticos (🔴)
+    - Requieren atención (🟡🟠🔴)
+    - En tratamiento (🔵)
+    - Saludables (🟢)
+  
+  temporal:
+    - Hoy
+    - Esta semana
+    - Este mes
+    - Rango personalizado
+    - Comparar dos fechas
+  
+  fenologia:
+    - En floración
+    - Con fruto
+    - En cosecha
+    - Reposo
+  
+  produccion:
+    - Alto rendimiento (>100kg)
+    - Rendimiento medio (50-100kg)
+    - Bajo rendimiento (<50kg)
+    - Sin producción
+  
+  busqueda:
+    - Por ID de árbol
+    - Por fila/columna
+    - Por problema específico
+```
+
+#### Exportación y Reportes
+
+| Formato | Contenido | Uso |
+|---------|-----------|-----|
+| **PDF Visual** | Cuadrícula con colores | Impresión para campo |
+| **Excel** | Matriz con datos | Análisis en hojas de cálculo |
+| **PNG/JPG** | Imagen de la cuadrícula | Reportes y presentaciones |
+| **GIF Animado** | Evolución temporal | Análisis de propagación |
+| **CSV** | Datos crudos | Integración con otros sistemas |
+
+#### Integración con App Móvil
+
+```
+┌─────────────────────────────────────┐
+│  📱 MODO INSPECCIÓN DE CAMPO        │
+├─────────────────────────────────────┤
+│                                     │
+│  Lote: A    Fila actual: 3          │
+│                                     │
+│  ← [🟢] [🟢] [🟡] [🟠] [🔴] →       │
+│       1     2     3     4    5      │
+│            ↑                        │
+│       Posición actual               │
+│                                     │
+│  Árbol F3-C3:                       │
+│  ┌─────────────────────────────┐    │
+│  │ Estado actual: 🟡 Atención  │    │
+│  │                             │    │
+│  │ Cambiar a:                  │    │
+│  │ [🟢] [🟡] [🟠] [🔴] [🔵]    │    │
+│  │                             │    │
+│  │ Problema detectado:         │    │
+│  │ [Seleccionar plaga/enf...▼] │    │
+│  │                             │    │
+│  │ [📷 Tomar foto]             │    │
+│  │ [💬 Agregar nota]           │    │
+│  └─────────────────────────────┘    │
+│                                     │
+│  [← Anterior] [Guardar] [Siguiente →]│
+└─────────────────────────────────────┘
+```
+
+#### Beneficios Clave
+
+| Beneficio | Impacto |
+|-----------|---------|
+| **Detección temprana** | Identificar focos de problemas antes de que se propaguen |
+| **Planificación visual** | Asignar tareas por zonas de manera intuitiva |
+| **Análisis de patrones** | Entender cómo se mueven las plagas/enfermedades |
+| **Comunicación efectiva** | Mostrar estado de la finca a cualquier persona |
+| **Decisiones rápidas** | Vista de 500+ árboles en una sola pantalla |
+| **Historial visual** | Comparar estado actual vs histórico |
+| **Reducción de tiempo** | De horas revisando datos a segundos con la cuadrícula |
+
+---
+
+### 3.3 🌱 Módulo de Salud y Fenología
 
 #### Seguimiento Fenológico
 - **Etapas Registradas:**
@@ -88,7 +299,7 @@ Proporcionar una plataforma digital que permita el monitoreo, gestión y anális
 
 ---
 
-### 3.3 💧 Módulo de Riego y Fertirriego
+### 3.4 💧 Módulo de Riego y Fertirriego
 
 #### Funcionalidades
 - Programación de riego por sectores/árboles
@@ -122,7 +333,7 @@ plan_fertirriego:
 
 ---
 
-### 3.4 🧪 Módulo de Aplicaciones Fitosanitarias
+### 3.5 🧪 Módulo de Aplicaciones Fitosanitarias
 
 #### Control de Plagas y Enfermedades Comunes en Aguacate
 | Problema | Síntomas | Producto Recomendado |
@@ -145,7 +356,7 @@ plan_fertirriego:
 
 ---
 
-### 3.5 🍃 Módulo de Cosecha
+### 3.6 🍃 Módulo de Cosecha
 
 #### Funcionalidades
 - Registro de cosecha por árbol/lote
@@ -181,7 +392,7 @@ plan_fertirriego:
 
 ---
 
-### 3.6 👷 Módulo de Gestión de Personal
+### 3.7 👷 Módulo de Gestión de Personal
 
 #### Funcionalidades
 - Registro de trabajadores y roles
@@ -202,7 +413,7 @@ plan_fertirriego:
 
 ---
 
-### 3.7 📊 Módulo de Reportes y Análisis
+### 3.8 📊 Módulo de Reportes y Análisis
 
 #### Reportes Disponibles
 | Reporte | Periodicidad | Formato |
@@ -215,6 +426,9 @@ plan_fertirriego:
 | Trazabilidad completa | Por lote | PDF |
 | Costos operativos | Mensual | Dashboard |
 | Proyección de cosecha | Trimestral | Dashboard |
+| **Cuadrícula de estado** | **Diario/Semanal** | **PDF/PNG/GIF** |
+| **Mapa de calor por zona** | **Semanal** | **Dashboard** |
+| **Análisis de propagación** | **Por evento** | **PDF/GIF** |
 
 #### KPIs Principales
 - 🎯 Rendimiento promedio (kg/árbol)
@@ -223,10 +437,12 @@ plan_fertirriego:
 - 🎯 Eficiencia de mano de obra (kg/hora-hombre)
 - 🎯 Consumo hídrico (m³/kg producido)
 - 🎯 Índice de incidencia de plagas
+- 🎯 **Velocidad de propagación de problemas**
+- 🎯 **% de cobertura de inspección semanal**
 
 ---
 
-### 3.8 📱 Aplicación Móvil de Campo
+### 3.9 📱 Aplicación Móvil de Campo
 
 #### Características
 - ✅ Funciona offline (sincroniza al tener conexión)
@@ -236,6 +452,9 @@ plan_fertirriego:
 - ✅ Navegación GPS hasta el árbol
 - ✅ Alertas y notificaciones push
 - ✅ Disponible para iOS y Android
+- ✅ **Vista de cuadrícula optimizada para móvil**
+- ✅ **Modo inspección fila por fila**
+- ✅ **Actualización rápida de estado con un tap**
 
 ---
 
@@ -297,6 +516,42 @@ Infraestructura:
        ┌──────────┐ ┌──────────┐ ┌──────────┐
        │ Fenología│ │  Salud   │ │  Fotos   │
        └──────────┘ └──────────┘ └──────────┘
+              │            │
+              └─────┬──────┘
+                    ▼
+            ┌──────────────┐
+            │  Historial   │
+            │  Cuadrícula  │
+            │  (Snapshots) │
+            └──────────────┘
+```
+
+### 5.3 Modelo de Datos - Vista Cuadrícula
+
+```sql
+-- Tabla para snapshots históricos de la cuadrícula
+CREATE TABLE grid_snapshots (
+    id SERIAL PRIMARY KEY,
+    lote_id INTEGER REFERENCES lotes(id),
+    fecha_snapshot TIMESTAMP DEFAULT NOW(),
+    tipo_snapshot VARCHAR(20), -- 'manual', 'automatico', 'inspeccion'
+    creado_por INTEGER REFERENCES usuarios(id)
+);
+
+-- Detalle de cada celda en el snapshot
+CREATE TABLE grid_snapshot_celdas (
+    id SERIAL PRIMARY KEY,
+    snapshot_id INTEGER REFERENCES grid_snapshots(id),
+    arbol_id INTEGER REFERENCES arboles(id),
+    fila INTEGER NOT NULL,
+    columna INTEGER NOT NULL,
+    estado VARCHAR(20), -- 'saludable', 'atencion', 'advertencia', 'critico', etc.
+    problema_id INTEGER REFERENCES problemas(id),
+    notas TEXT
+);
+
+-- Índice para búsquedas rápidas por posición
+CREATE INDEX idx_grid_posicion ON grid_snapshot_celdas(snapshot_id, fila, columna);
 ```
 
 ---
@@ -322,12 +577,16 @@ Infraestructura:
 
 ### Fase 1: MVP (3 meses)
 - [ ] Módulo de registro de árboles y mapeo básico
+- [ ] **🔲 Vista de cuadrícula básica (PRIORIDAD ALTA)**
 - [ ] Aplicación móvil con funcionalidad offline
+- [ ] **🔲 Actualización de estado en cuadrícula desde móvil**
 - [ ] Registro de cosechas
 - [ ] Dashboard básico
 
 ### Fase 2: Core (3 meses)
 - [ ] Módulo de aplicaciones fitosanitarias
+- [ ] **🔲 Historial de cuadrícula y comparación temporal**
+- [ ] **🔲 Análisis de propagación de plagas**
 - [ ] Gestión de riego y fertirriego
 - [ ] Módulo de personal
 - [ ] Reportes avanzados
@@ -335,6 +594,7 @@ Infraestructura:
 ### Fase 3: Avanzado (3 meses)
 - [ ] Integración con drones e imágenes satelitales
 - [ ] IA para detección de plagas
+- [ ] **🔲 Predicción de propagación con ML**
 - [ ] Predicción de cosechas con ML
 - [ ] Integraciones con ERPs
 
@@ -355,6 +615,8 @@ Infraestructura:
 | Aumento rendimiento | 5% | 15% |
 | Tiempo registro actividades | -50% | -70% |
 | Precisión predicción cosecha | 80% | 90% |
+| **Cobertura inspección semanal** | **90%** | **98%** |
+| **Tiempo detección de focos** | **-60%** | **-80%** |
 
 ---
 
@@ -387,4 +649,4 @@ Este sistema está inspirado en las mejores prácticas de los líderes del merca
 ---
 
 *Documento generado el 2025-12-08*
-*Versión 1.0*
+*Versión 1.1 - Agregado módulo de Vista de Cuadrícula*
