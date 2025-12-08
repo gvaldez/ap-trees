@@ -67,11 +67,11 @@ Para decidir qué funcionalidades incluir en cada fase, utilizamos los siguiente
 
 ## 18.2 Fases de Desarrollo
 
-### 📦 FASE 1: MVP Core (10 semanas)
+### 📦 FASE 1: MVP Core (12 semanas)
 
 **Objetivo**: Un usuario puede registrar su finca, mapear árboles, hacer inspecciones y ver el estado en cuadrícula.
 
-**Duración**: 10 semanas (5 sprints de 2 semanas)
+**Duración**: 12 semanas (6 sprints de 2 semanas)
 
 **Equipo**: 4-5 personas (1 Backend, 1 Frontend, 1 Mobile, 1 QA)
 
