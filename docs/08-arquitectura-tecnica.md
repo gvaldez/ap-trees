@@ -350,7 +350,7 @@ export class OfflineService {
   async queueForSync(type: PendingSync['type'], data: any): Promise<void> {
     const pending = this.pendingSync$.value;
     const newItem: PendingSync = {
-      id: crypto.randomUUID(),
+      id: crypto.randomUUID(), // Available in modern browsers and Node.js 19+
       type,
       data,
       timestamp: new Date(),
@@ -362,7 +362,7 @@ export class OfflineService {
   }
 
   private async syncPendingData(): Promise<void> {
-    // Implementar lógica de sincronización
+    // Implement synchronization logic
   }
 }
 ```
