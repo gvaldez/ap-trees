@@ -47,6 +47,15 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 | 12 | [Próximos Pasos](12-proximos-pasos.md) | Roadmap y siguientes acciones |
 | 19 | [Catálogos y Datos Semilla](19-catalogos-datos-semilla.md) | Scripts SQL de catálogos y datos de prueba |
 
+### 👥 UX y Experiencia de Usuario
+
+| # | Documento | Descripción |
+|---|-----------|-------------|
+| 13 | [Módulo Administrador](13-modulo-administrador.md) | Panel interno del equipo AgroGrid, gestión de plataforma |
+| 14 | [Módulo Usuarios](14-modulo-usuarios.md) | Roles, permisos y funcionalidades para clientes |
+| 15 | [Customer Journeys](15-customer-journeys.md) | Flujos de usuario: onboarding, setup, operación |
+| 16 | [Wireframes](16-wireframes.md) | Diseños de pantallas principales |
+
 ---
 
 ## 🗺️ Mapa de Dependencias entre Módulos
@@ -147,6 +156,11 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 
 ## 📝 Notas de Versión
 
+- **Versión 2.4**: Documentación UX y Experience (Diciembre 2025)
+  - Módulo Administrador (backoffice interno)
+  - Módulo Usuarios (roles y permisos de clientes)
+  - Customer Journeys (flujos de usuario detallados)
+  - Wireframes (diseños ASCII de pantallas)
 - **Versión 2.4**: Actualización del Stack Tecnológico (Diciembre 2025)
   - ✨ **Frontend Web**: Migración a Angular 17+ con Standalone Components
   - 📱 **App Móvil**: Cambio a Ionic 7+ con Angular 17+ y Capacitor 5+
