@@ -146,6 +146,14 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 
 ## 📝 Notas de Versión
 
+- **Versión 2.4**: Actualización del Stack Tecnológico (Diciembre 2025)
+  - ✨ **Frontend Web**: Migración a Angular 17+ con Standalone Components
+  - 📱 **App Móvil**: Cambio a Ionic 7+ con Angular 17+ y Capacitor 5+
+  - ☕ **Backend**: Actualización a Spring Boot 3.2 con Java 17
+  - 📁 **Estructura del Proyecto**: Definición de arquitectura de monorepo
+  - ⚙️ **Configuración**: Ejemplos de configuración Angular e Ionic/Capacitor
+  - 📡 **Servicios**: Implementación de servicios offline-first, cámara y QR
+
 - **Versión 2.3**: Modularización de la documentación (Diciembre 2025)
   - Separación en archivos individuales por módulo
   - Adición de navegación y referencias cruzadas
