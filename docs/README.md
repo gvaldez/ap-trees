@@ -45,6 +45,7 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 | 10 | [Métricas de Éxito](10-metricas-exito.md) | KPIs y criterios de evaluación del sistema |
 | 11 | [Resumen de Especificación](11-resumen-especificacion.md) | Síntesis de características y capacidades |
 | 12 | [Próximos Pasos](12-proximos-pasos.md) | Roadmap y siguientes acciones |
+| 18 | [Plan MVP y Roadmap](18-plan-mvp.md) | Planificación de desarrollo por fases |
 | 19 | [Catálogos y Datos Semilla](19-catalogos-datos-semilla.md) | Scripts SQL de catálogos y datos de prueba |
 
 ### 👥 UX y Experiencia de Usuario
