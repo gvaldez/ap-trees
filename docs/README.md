@@ -45,6 +45,7 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 | 10 | [Métricas de Éxito](10-metricas-exito.md) | KPIs y criterios de evaluación del sistema |
 | 11 | [Resumen de Especificación](11-resumen-especificacion.md) | Síntesis de características y capacidades |
 | 12 | [Próximos Pasos](12-proximos-pasos.md) | Roadmap y siguientes acciones |
+| 19 | [Catálogos y Datos Semilla](19-catalogos-datos-semilla.md) | Scripts SQL de catálogos y datos de prueba |
 
 ### 👥 UX y Experiencia de Usuario
 
@@ -160,6 +161,13 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
   - Módulo Usuarios (roles y permisos de clientes)
   - Customer Journeys (flujos de usuario detallados)
   - Wireframes (diseños ASCII de pantallas)
+- **Versión 2.4**: Actualización del Stack Tecnológico (Diciembre 2025)
+  - ✨ **Frontend Web**: Migración a Angular 17+ con Standalone Components
+  - 📱 **App Móvil**: Cambio a Ionic 7+ con Angular 17+ y Capacitor 5+
+  - ☕ **Backend**: Actualización a Spring Boot 3.2 con Java 17
+  - 📁 **Estructura del Proyecto**: Definición de arquitectura de monorepo
+  - ⚙️ **Configuración**: Ejemplos de configuración Angular e Ionic/Capacitor
+  - 📡 **Servicios**: Implementación de servicios offline-first, cámara y QR
 
 - **Versión 2.3**: Modularización de la documentación (Diciembre 2025)
   - Separación en archivos individuales por módulo
