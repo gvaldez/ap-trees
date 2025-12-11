@@ -45,6 +45,7 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 | 10 | [Métricas de Éxito](10-metricas-exito.md) | KPIs y criterios de evaluación del sistema |
 | 11 | [Resumen de Especificación](11-resumen-especificacion.md) | Síntesis de características y capacidades |
 | 12 | [Próximos Pasos](12-proximos-pasos.md) | Roadmap y siguientes acciones |
+| 17 | [🔌 API REST](17-api-rest.md) | Documentación completa de endpoints REST por dominio |
 | 18 | [Plan MVP y Roadmap](18-plan-mvp.md) | Planificación de desarrollo por fases |
 | 19 | [Catálogos y Datos Semilla](19-catalogos-datos-semilla.md) | Scripts SQL de catálogos y datos de prueba |
 
@@ -114,8 +115,9 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 ### Para Desarrolladores
 1. Comienza con el [Resumen Ejecutivo](01-resumen-ejecutivo.md) para entender la visión general
 2. Revisa la [Arquitectura Técnica](08-arquitectura-tecnica.md) para comprender el stack tecnológico
-3. Explora los módulos individuales según el área en la que trabajarás
-4. Consulta el [Plan de Implementación](09-plan-implementacion.md) para conocer las prioridades
+3. Consulta la [API REST](17-api-rest.md) para conocer todos los endpoints disponibles
+4. Explora los módulos individuales según el área en la que trabajarás
+5. Consulta el [Plan de Implementación](09-plan-implementacion.md) para conocer las prioridades
 
 ### Para Product Managers
 1. Lee el [Modelo de Negocio SaaS](02-modelo-negocio-saas.md) para entender el modelo comercial
@@ -157,6 +159,12 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 
 ## 📝 Notas de Versión
 
+- **Versión 2.5**: Documentación API REST (Diciembre 2025)
+  - 🔌 Documento índice de API REST (17-api-rest.md)
+  - 📁 16 documentos de endpoints organizados por dominio en `/api/`
+  - 🔐 Autenticación JWT con refresh tokens
+  - 📄 Estándar RFC 7807 para errores
+  - 📊 Paginación HATEOAS y rate limiting por plan
 - **Versión 2.4**: Documentación UX y Experience (Diciembre 2025)
   - Módulo Administrador (backoffice interno)
   - Módulo Usuarios (roles y permisos de clientes)
