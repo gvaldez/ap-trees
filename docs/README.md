@@ -115,7 +115,7 @@ Bienvenido a la documentación modular del sistema **AgroGrid**, una plataforma 
 ### Para Desarrolladores
 1. Comienza con el [Resumen Ejecutivo](01-resumen-ejecutivo.md) para entender la visión general
 2. Revisa la [Arquitectura Técnica](08-arquitectura-tecnica.md) para comprender el stack tecnológico
-3. Consulta la [API REST](17-api-rest.md) para conocer todos los endpoints disponibles
+3. Consulta la [API REST](17-api-rest.md) para conocer los endpoints disponibles
 4. Explora los módulos individuales según el área en la que trabajarás
 5. Consulta el [Plan de Implementación](09-plan-implementacion.md) para conocer las prioridades
 
